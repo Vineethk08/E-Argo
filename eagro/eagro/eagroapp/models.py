@@ -1,8 +1,32 @@
-import torch 
-import torch.nn as nn
-import torch.nn.functional as F
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+
+# PyTorch imports - optional, only needed for disease detection
+try:
+    import torch 
+    import torch.nn as nn
+    import torch.nn.functional as F
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    # Create dummy classes for when torch is not available
+    class nn:
+        class Module:
+            pass
+        class Sequential:
+            pass
+        class Conv2d:
+            pass
+        class BatchNorm2d:
+            pass
+        class MaxPool2d:
+            pass
+        class Linear:
+            pass
+        class ReLU:
+            pass
+    class F:
+        pass
 
 class User(AbstractUser):
     is_admin = models.BooleanField(default=False)
@@ -23,7 +47,7 @@ def ConvBlock(in_channels, out_channels, pool=False):
 
 
 # Model Architecture
-class ResNet9(nn.Module):
+class ResNet9(nn.Module if TORCH_AVAILABLE else object):
     def __init__(self, in_channels, num_diseases):
         super().__init__()
         

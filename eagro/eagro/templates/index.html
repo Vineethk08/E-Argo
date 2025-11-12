@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Argo - Smart Agricultural Solutions</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/user-login/">Login</a>
+                    <a href="/user-signup/">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>🌾 Welcome to E-Argo</h1>
+            <p>Your Intelligent Agricultural Companion</p>
+            <p style="font-size: 1.1rem; margin-top: 10px;">Empowering farmers with AI-driven crop recommendations, disease detection, and fertilizer suggestions</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card hover-lift">
+                <h3><span class="icon-animated">🌾</span> Crop Recommendation</h3>
+                <p>Get personalized crop recommendations based on your soil conditions, weather data, and local climate. Our AI analyzes multiple factors to suggest the best crops for your land.</p>
+                <ul style="list-style: none; padding: 0; margin: 15px 0; color: var(--text-light);">
+                    <li>✓ Soil nutrient analysis</li>
+                    <li>✓ Weather integration</li>
+                    <li>✓ Climate-based suggestions</li>
+                </ul>
+                <a href="/crop" class="btn btn-full">Get Crop Recommendation</a>
+            </div>
+
+            <div class="feature-card hover-lift">
+                <h3><span class="icon-animated">🦠</span> Disease Detection</h3>
+                <p>Upload a photo of your plant leaves and get instant disease diagnosis. Our AI-powered system can identify 38+ different plant diseases and provide treatment recommendations.</p>
+                <ul style="list-style: none; padding: 0; margin: 15px 0; color: var(--text-light);">
+                    <li>✓ Instant diagnosis</li>
+                    <li>✓ Treatment suggestions</li>
+                    <li>✓ Prevention tips</li>
+                </ul>
+                <a href="/Crop-disease/" class="btn btn-full">Detect Disease</a>
+            </div>
+
+            <div class="feature-card hover-lift">
+                <h3><span class="icon-animated">💊</span> Fertilizer Suggestion</h3>
+                <p>Get expert fertilizer recommendations tailored to your specific crop and soil conditions. Optimize your nutrient management for better yields.</p>
+                <ul style="list-style: none; padding: 0; margin: 15px 0; color: var(--text-light);">
+                    <li>✓ Crop-specific advice</li>
+                    <li>✓ Nutrient optimization</li>
+                    <li>✓ Cost-effective solutions</li>
+                </ul>
+                <a href="/fertilizer" class="btn btn-full">Get Fertilizer Advice</a>
+            </div>
+        </div>
+
+        <div class="hover-lift" style="background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px var(--shadow); margin: 40px 0; text-align: center; animation: fadeInUp 1s ease-out 0.5s both;">
+            <h2 class="text-3d" style="color: var(--primary-green); margin-bottom: 20px;">Why Choose E-Argo?</h2>
+            <div class="card-grid">
+                <div class="scroll-animate" style="animation-delay: 0.1s;">
+                    <h3 style="color: var(--secondary-green); margin-bottom: 10px;"><span class="icon-animated">🎯</span> Accurate</h3>
+                    <p style="color: var(--text-light);">AI-powered recommendations based on real agricultural data</p>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.2s;">
+                    <h3 style="color: var(--secondary-green); margin-bottom: 10px;"><span class="icon-animated">⚡</span> Fast</h3>
+                    <p style="color: var(--text-light);">Get instant results and recommendations</p>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.3s;">
+                    <h3 style="color: var(--secondary-green); margin-bottom: 10px;"><span class="icon-animated">🌍</span> Localized</h3>
+                    <p style="color: var(--text-light);">Weather and climate data for your specific location</p>
+                </div>
+                <div class="scroll-animate" style="animation-delay: 0.4s;">
+                    <h3 style="color: var(--secondary-green); margin-bottom: 10px;"><span class="icon-animated">💡</span> Expert</h3>
+                    <p style="color: var(--text-light);">Professional agricultural insights at your fingertips</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions. Empowering farmers worldwide.</p>
+    </footer>
+</body>
+</html>

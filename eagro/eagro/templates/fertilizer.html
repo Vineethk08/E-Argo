@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/user-login/">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>💊 Fertilizer Recommendation</h2>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="error">{{ message }}</div>
+                {% else %}
+                    <div class="success">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+        <div class="info" style="margin-bottom: 25px;">
+            <strong>📋 Instructions:</strong> Select your crop type and enter current soil nutrient levels to get personalized fertilizer recommendations.
+        </div>
+
+        <form method="POST" action="/fertilizer-recommendation/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>🌾 Crop Name:</label>
+                <select name="cropname" required>
+                    <option value="">-- Select a crop --</option>
+                    <option value="Rice">Rice</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Maize">Maize</option>
+                    <option value="Cotton">Cotton</option>
+                    <option value="Sugarcane">Sugarcane</option>
+                    <option value="Potato">Potato</option>
+                    <option value="Tomato">Tomato</option>
+                    <option value="Onion">Onion</option>
+                    <option value="Chilli">Chilli</option>
+                    <option value="Brinjal">Brinjal</option>
+                    <option value="Okra">Okra</option>
+                    <option value="Cucumber">Cucumber</option>
+                    <option value="Carrot">Carrot</option>
+                    <option value="Cabbage">Cabbage</option>
+                    <option value="Cauliflower">Cauliflower</option>
+                    <option value="Broccoli">Broccoli</option>
+                    <option value="Spinach">Spinach</option>
+                    <option value="Lettuce">Lettuce</option>
+                    <option value="Beans">Beans</option>
+                    <option value="Peas">Peas</option>
+                </select>
+                <small>Select the crop you are growing or planning to grow</small>
+            </div>
+            <div class="form-group">
+                <label>🌱 Current Nitrogen (N) Level:</label>
+                <input type="number" name="nitrogen" min="0" max="200" required placeholder="e.g., 80">
+                <small>Current nitrogen content in your soil</small>
+            </div>
+            <div class="form-group">
+                <label>🌿 Current Phosphorous (P) Level:</label>
+                <input type="number" name="phosphorous" min="0" max="200" required placeholder="e.g., 40">
+                <small>Current phosphorous content in your soil</small>
+            </div>
+            <div class="form-group">
+                <label>🍃 Current Potassium (K) Level:</label>
+                <input type="number" name="pottasium" min="0" max="200" required placeholder="e.g., 50">
+                <small>Current potassium content in your soil</small>
+            </div>
+            <button type="submit" class="btn btn-full">Get Fertilizer Recommendation</button>
+        </form>
+        <div class="link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>
