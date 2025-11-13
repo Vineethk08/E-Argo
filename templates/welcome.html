@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to E-Argo - Smart Agricultural Solutions</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body class="welcome-page">
+    <div class="welcome-container">
+        <!-- Farmer Group Illustration -->
+        <div class="farmer-illustration">
+            <div class="farmers-group">
+                <!-- Farmer 1 -->
+                <div class="farmer farmer-1">
+                    <div class="farmer-head">
+                        <div class="hat"></div>
+                        <div class="face">
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+                            <div class="mouth"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-body">
+                        <div class="shirt"></div>
+                        <div class="hands">
+                            <div class="hand left-hand"></div>
+                            <div class="hand right-hand"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-legs">
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+                </div>
+
+                <!-- Farmer 2 (Center) -->
+                <div class="farmer farmer-2 main-farmer">
+                    <div class="farmer-head">
+                        <div class="hat"></div>
+                        <div class="face">
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+                            <div class="mouth smile"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-body">
+                        <div class="shirt"></div>
+                        <div class="hands waving">
+                            <div class="hand left-hand wave"></div>
+                            <div class="hand right-hand wave"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-legs">
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+                </div>
+
+                <!-- Farmer 3 -->
+                <div class="farmer farmer-3">
+                    <div class="farmer-head">
+                        <div class="hat"></div>
+                        <div class="face">
+                            <div class="eye left-eye"></div>
+                            <div class="eye right-eye"></div>
+                            <div class="mouth"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-body">
+                        <div class="shirt"></div>
+                        <div class="hands">
+                            <div class="hand left-hand"></div>
+                            <div class="hand right-hand"></div>
+                        </div>
+                    </div>
+                    <div class="farmer-legs">
+                        <div class="leg left-leg"></div>
+                        <div class="leg right-leg"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Farm Elements -->
+            <div class="farm-elements">
+                <div class="sun"></div>
+                <div class="cloud cloud-1"></div>
+                <div class="cloud cloud-2"></div>
+                <div class="crop crop-1">🌾</div>
+                <div class="crop crop-2">🌾</div>
+                <div class="crop crop-3">🌾</div>
+            </div>
+        </div>
+
+        <!-- Welcome Content -->
+        <div class="welcome-content">
+            <h1 class="welcome-title">
+                <span class="title-main">Welcome to</span>
+                <span class="title-brand">E-Argo</span>
+            </h1>
+            <p class="welcome-subtitle">Your Intelligent Agricultural Companion</p>
+            <p class="welcome-description">
+                Join thousands of farmers using AI-powered technology to make smarter decisions about crops, 
+                disease detection, and fertilizer management. Start your journey to better farming today!
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="welcome-actions">
+                <a href="/user-signup/" class="btn btn-primary">
+                    <span>🚀 Get Started</span>
+                </a>
+                <a href="/user-login/" class="btn btn-secondary">
+                    <span>🔐 Login</span>
+                </a>
+            </div>
+
+            <!-- Features Preview -->
+            <div class="features-preview">
+                <div class="feature-preview">
+                    <div class="feature-icon">🌾</div>
+                    <p>Crop Recommendations</p>
+                </div>
+                <div class="feature-preview">
+                    <div class="feature-icon">🦠</div>
+                    <p>Disease Detection</p>
+                </div>
+                <div class="feature-preview">
+                    <div class="feature-icon">💊</div>
+                    <p>Fertilizer Advice</p>
+                </div>
+            </div>
+
+            <!-- Continue as Guest -->
+            <div class="guest-access">
+                <a href="/home/" class="guest-link">Continue as Guest →</a>
+            </div>
+            
+            <!-- Already have account -->
+            <div class="login-prompt" style="margin-top: 20px; text-align: center;">
+                <p style="color: rgba(255, 255, 255, 0.8);">Already have an account? 
+                    <a href="/user-login/" style="color: #00ff9f; text-decoration: none; font-weight: 600;">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+    </div>
+</body>
+</html>
+

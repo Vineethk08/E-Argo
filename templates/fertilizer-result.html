@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation Result - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/fertilizer">Fertilizer</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="result-card">
+            <h2 style="color: var(--primary-green); margin-bottom: 20px;">💊 Fertilizer Recommendation</h2>
+            <div class="result-content">
+                {{ recommendation|safe }}
+            </div>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="/fertilizer" class="btn">Get Another Recommendation</a>
+                <a href="/crop" class="btn">Get Crop Recommendation</a>
+                <a href="/" class="btn" style="background: var(--text-light);">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>

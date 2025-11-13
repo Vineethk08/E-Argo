@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Detection - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/user-login/">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>🦠 Plant Disease Detection</h2>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="error">{{ message }}</div>
+                {% elif message.tags == 'warning' %}
+                    <div class="warning">{{ message }}</div>
+                {% else %}
+                    <div class="success">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+        <div class="info" style="margin-bottom: 25px;">
+            <strong>📋 Instructions:</strong> Upload a clear photo of a plant leaf. Our AI will analyze the image and provide disease diagnosis with treatment recommendations.
+            <br><br>
+            <strong>Supported crops:</strong> Apple, Corn, Tomato, Grape, Potato, Cherry, Pepper, Peach, and many more!
+        </div>
+
+        <form method="POST" action="/Crop-disease-prediction/" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>📷 Upload Plant Image:</label>
+                <input type="file" name="file" accept="image/*" required>
+                <small>Accepted formats: JPG, PNG, JPEG. Maximum file size: 10MB</small>
+            </div>
+            <button type="submit" class="btn btn-full">🔍 Detect Disease</button>
+        </form>
+        <div class="link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>

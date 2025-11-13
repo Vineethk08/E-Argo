@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                {% if user.is_authenticated %}
+                <a href="/logout/">Logout</a>
+                {% else %}
+                <a href="/user-login/">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div
+            style="background: var(--white); padding: 50px; border-radius: 15px; box-shadow: 0 5px 15px var(--shadow); max-width: 700px; margin: 0 auto;">
+            <h1 style="color: var(--primary-green); margin-bottom: 30px; text-align: center; font-size: 2.5rem;">📞
+                Contact Us</h1>
+
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 25px;">
+                    Have questions or need support? We're here to help!
+                </p>
+            </div>
+
+            <div class="card-grid" style="grid-template-columns: 1fr; gap: 20px;">
+                <div class="feature-card">
+                    <h3>📧 Email</h3>
+                    <p style="font-size: 1.1rem; color: var(--secondary-green);">milatariv@gmail.com</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Phone</h3>
+                    <p style="font-size: 1.1rem; color: var(--secondary-green);">+1 2036737087</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📍 Address</h3>
+                    <p style="font-size: 1.1rem; color: var(--secondary-green);">Agricultural Technology Center<br>123
+                        Farm Road<br>Agricultural City, AC 12345</p>
+                </div>
+            </div>
+
+            <div style="background: var(--light-green); padding: 25px; border-radius: 10px; margin-top: 30px;">
+                <h3 style="color: var(--primary-green); margin-bottom: 15px;">💬 Get in Touch</h3>
+                <p style="color: var(--text-dark); line-height: 1.8;">
+                    Whether you're a farmer looking for crop recommendations, need help with disease detection, or have
+                    questions about our services, our team is ready to assist you. Reach out to us through any of the
+                    channels above.
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/" class="btn">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions. Empowering farmers worldwide.</p>
+    </footer>
+</body>
+
+</html>

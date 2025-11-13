@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/contact/">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/user-login/">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div style="background: var(--white); padding: 50px; border-radius: 15px; box-shadow: 0 5px 15px var(--shadow);">
+            <h1 style="color: var(--primary-green); margin-bottom: 30px; text-align: center; font-size: 2.5rem;">About E-Argo</h1>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-dark); margin-bottom: 25px;">
+                    E-Argo is an intelligent agricultural recommendation system designed to empower farmers with data-driven insights and AI-powered solutions. Our platform helps farmers make informed decisions about crop selection, disease management, and fertilizer usage.
+                </p>
+
+                <h2 style="color: var(--secondary-green); margin: 30px 0 15px 0;">🌾 Our Mission</h2>
+                <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 25px;">
+                    To provide accessible, accurate, and actionable agricultural recommendations that help farmers optimize their yields, reduce costs, and make sustainable farming decisions.
+                </p>
+
+                <h2 style="color: var(--secondary-green); margin: 30px 0 15px 0;">💡 Key Features</h2>
+                <div class="card-grid">
+                    <div class="feature-card">
+                        <h3>🌾 Crop Recommendation</h3>
+                        <p>AI-powered crop suggestions based on soil analysis and weather data</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🦠 Disease Detection</h3>
+                        <p>Instant plant disease diagnosis from leaf images using deep learning</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>💊 Fertilizer Advice</h3>
+                        <p>Personalized fertilizer recommendations for optimal crop growth</p>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--secondary-green); margin: 30px 0 15px 0;">🔬 Technology</h2>
+                <p style="line-height: 1.8; color: var(--text-light); margin-bottom: 25px;">
+                    E-Argo leverages cutting-edge machine learning and artificial intelligence technologies, including Random Forest algorithms for crop prediction and ResNet9 deep learning models for disease detection. Our system integrates real-time weather data to provide localized recommendations.
+                </p>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="/" class="btn">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions. Empowering farmers worldwide.</p>
+    </footer>
+</body>
+</html>

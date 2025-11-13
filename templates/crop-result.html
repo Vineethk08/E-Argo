@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation Result - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/crop">Crop Recommendation</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="result-card glow">
+            <h2 class="text-3d" style="color: var(--primary-green); margin-bottom: 20px;"><span class="icon-animated">🌾</span> Recommended Crop</h2>
+            <div class="result-content">
+                <h3 style="color: var(--accent-green); font-size: 2.5rem; text-align: center; margin: 20px 0; animation: scaleIn 1s ease-out 0.3s both, pulse 3s ease-in-out infinite 1.5s;">{{ prediction }}</h3>
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="badge badge-success" style="animation: pulse 2s infinite;">Best Match</span>
+                </div>
+            </div>
+            <p style="color: var(--text-light); margin-top: 20px; text-align: center;">
+                This crop is recommended based on your soil parameters and weather conditions.
+            </p>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="/crop" class="btn">Try Another Recommendation</a>
+                <a href="/fertilizer" class="btn">Get Fertilizer Advice</a>
+                <a href="/" class="btn" style="background: var(--text-light);">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>

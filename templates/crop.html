@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+                <a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                {% if user.is_authenticated %}
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/user-login/">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>🌾 Crop Recommendation</h2>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'error' %}
+                    <div class="error">{{ message }}</div>
+                {% elif message.tags == 'warning' %}
+                    <div class="warning">{{ message }}</div>
+                {% else %}
+                    <div class="success">{{ message }}</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+        <div class="info" style="margin-bottom: 25px;">
+            <strong>📋 Instructions:</strong> Enter your soil parameters and location to get personalized crop recommendations. All fields are required.
+        </div>
+
+        <form method="POST" action="/crop-recommendation/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>🌱 Nitrogen (N) Level:</label>
+                <input type="number" name="nitrogen" min="0" max="200" required placeholder="e.g., 90">
+                <small>Typical range: 0-200</small>
+            </div>
+            <div class="form-group">
+                <label>🌿 Phosphorous (P) Level:</label>
+                <input type="number" name="phosphorous" min="0" max="200" required placeholder="e.g., 50">
+                <small>Typical range: 0-200</small>
+            </div>
+            <div class="form-group">
+                <label>🍃 Potassium (K) Level:</label>
+                <input type="number" name="pottasium" min="0" max="200" required placeholder="e.g., 50">
+                <small>Typical range: 0-200</small>
+            </div>
+            <div class="form-group">
+                <label>🧪 pH Level:</label>
+                <input type="number" name="ph" step="0.1" min="0" max="14" required placeholder="e.g., 6.5">
+                <small>Scale: 0 (acidic) to 14 (alkaline). Most crops prefer 6.0-7.0</small>
+            </div>
+            <div class="form-group">
+                <label>🌧️ Rainfall (mm):</label>
+                <input type="number" name="rainfall" min="0" step="0.1" required placeholder="e.g., 150">
+                <small>Annual or seasonal rainfall in millimeters</small>
+            </div>
+            <div class="form-group">
+                <label>🌍 City Name:</label>
+                <input type="text" name="city" required placeholder="e.g., New York, Mumbai, London">
+                <small>Enter your city name for weather data</small>
+            </div>
+            <button type="submit" class="btn btn-full">Get Crop Recommendation</button>
+        </form>
+        <div class="link">
+            <a href="/">← Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>

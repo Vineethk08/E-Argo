@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - E-Argo</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'scripts/chatbot.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>E-Argo</h1>
+            <div>
+                <a href="/">Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="result-card" style="border-left-color: #f4a261;">
+            <h2 style="color: #f4a261; margin-bottom: 20px;">⚠️ Weather Data Unavailable</h2>
+            <div class="result-content">
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    We couldn't fetch weather data for the specified city. This might be due to:
+                </p>
+                <ul style="margin: 20px 0; padding-left: 20px; line-height: 2;">
+                    <li>City name not found</li>
+                    <li>Network connectivity issues</li>
+                    <li>Weather API service temporarily unavailable</li>
+                </ul>
+                <p style="margin-top: 20px; font-weight: 600; color: var(--primary-green);">
+                    Don't worry! You can still get crop recommendations using default weather values.
+                </p>
+            </div>
+            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="/crop" class="btn">Try Again</a>
+                <a href="/" class="btn" style="background: var(--text-light);">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Argo - Smart Agricultural Solutions</p>
+    </footer>
+</body>
+</html>
